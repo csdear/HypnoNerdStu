@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "BNRHypnosisViewController.h"
+#import "BNRReminderViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    //Creating a instance of the VC
+    BNRHypnosisViewController *hvc = [[BNRHypnosisViewController alloc] init];
+
+    //A pointer to an object that represents the app bundle
+    NSBundle *appBundle = [NSBundle mainBundle];
+    
+    //Look in the appBundel for the file BRNRemiinderViewController.xib
+    BNRReminderViewController *rvc = [[BNRReminderViewController alloc] initWithNibName:@"BNReminderViewController" bundle:appBundle];
+    
+    //setting the root view controller
+    self.window.rootViewController = hvc;
     return YES;
 }
 
