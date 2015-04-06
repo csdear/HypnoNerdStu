@@ -28,12 +28,21 @@
 
     //A pointer to an object that represents the app bundle
     NSBundle *appBundle = [NSBundle mainBundle];
-    
+
+    //root view controller 
     //Look in the appBundel for the file BRNRemiinderViewController.xib
     BNRReminderViewController *rvc = [[BNRReminderViewController alloc] initWithNibName:@"BNReminderViewController" bundle:appBundle];
-    
+   
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[hvc, rvc];
+
     //setting the root view controller
-    self.window.rootViewController = hvc;
+    //changed the window rvc from hypnosis VC to the tabBarController.
+   // self.window.rootViewController = hvc;
+    self.window.rootViewController = tabBarController;
+
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];  
     return YES;
 }
 
